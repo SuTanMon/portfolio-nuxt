@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>John Kirby Soliven</h1>
+    <img src="/images/Profile.png" alt="Profile Photo" />
     <p>BSIT student from the Philippines at St. Dominic College of Asia.</p>
 
     <h2>About</h2>
@@ -72,4 +73,14 @@ a:hover {
   background: #111111;
   color: #ffffff;
 }
+
+/* Profile photo: small, with a red border */
+img {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border: 4px solid #d62828;
+  margin-bottom: 1rem;
+}
+
 </style>
