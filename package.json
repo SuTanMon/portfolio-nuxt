@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.5",
+    "@types/three": "^0.187.0",
     "daisyui": "^5.7.50",
     "tailwindcss": "^4.3.5"
   }
