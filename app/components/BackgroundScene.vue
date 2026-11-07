@@ -1,5 +1,6 @@
 <script setup>
 const sky = '#f6eeeb'
+const route = useRoute()
 </script>
 
 <template>
@@ -9,10 +10,10 @@ const sky = '#f6eeeb'
       <TresAmbientLight :intensity="1.1" />
       <TresDirectionalLight :position="[6, 10, 6]" :intensity="2.2" />
 
-      <StudioRig />
+      <StudioRig :path="route.path" />
       <StudioRoom />
+      <Hotspots />
 
-      <!-- 5 towers outside the window (red and white) -->
       <LowBox :p="[-4, 3, -14]" :s="[2, 6, 2]" c="#e11d2e" />
       <LowBox :p="[-1, 4.5, -18]" :s="[2.5, 9, 2.5]" c="#ffffff" />
       <LowBox :p="[2, 2.5, -13]" :s="[2, 5, 2]" c="#b3121f" />
