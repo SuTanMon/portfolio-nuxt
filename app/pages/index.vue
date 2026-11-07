@@ -1,5 +1,7 @@
+
 <script setup lang="ts">
 useHead({ title: 'Home' })
+
 useSeoMeta({
   description: 'Portfolio of John Kirby Soliven, a BSIT student from the Philippines learning web development.',
   ogTitle: 'John Kirby Soliven | Portfolio',
@@ -22,17 +24,27 @@ const learning = [
 
 <template>
   <div>
-    <ProfileHeader />
-    <section class="mt-12">
-      <h2 class="mb-1 text-2xl font-bold text-primary">What I've Been Learning</h2>
-      <p class="mb-4">Started from scratch, still going.</p>
-      <div class="grid gap-4 sm:grid-cols-2">
-        <ContentCard v-for="item in learning" :key="item.title" v-bind="item" />
-      </div>
+    <section class="flex h-[65vh] items-end justify-center pb-4">
+      <p class="bg-base-100/70 px-3 py-1 text-sm uppercase tracking-widest text-secondary">
+        Hover and click the shapes, scroll for more
+      </p>
     </section>
-    <section class="mt-12 text-center">
-      <h2 class="mb-2 text-2xl font-bold text-primary">Open to Collabs & Opportunities</h2>
-      <NuxtLink to="/contact" class="btn btn-primary">Contact Me</NuxtLink>
-    </section>
+
+    <div class="bg-base-100/75 px-5 pb-12">
+      <ProfileHeader />
+
+      <section class="mt-12">
+        <h2 class="mb-1 text-2xl font-bold text-primary">What I've Been Learning</h2>
+        <p class="mb-4">Started from scratch, still going.</p>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <ContentCard v-for="item in learning" :key="item.title" v-bind="item" />
+        </div>
+      </section>
+
+      <section class="mt-12 text-center">
+        <h2 class="mb-2 text-2xl font-bold text-primary">Open to Collabs & Opportunities</h2>
+        <NuxtLink to="/contact" class="btn btn-primary">Contact Me</NuxtLink>
+      </section>
+    </div>
   </div>
 </template>
