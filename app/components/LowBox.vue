@@ -1,17 +1,14 @@
-<script setup lang="ts">
-withDefaults(
-  defineProps<{
-    p?: [number, number, number]
-    s?: [number, number, number]
-    r?: [number, number, number]
-    c?: string
-  }>(),
-  { p: () => [0, 0, 0], s: () => [1, 1, 1], r: () => [0, 0, 0], c: '#ffffff' },
-)
+<script setup>
+// p = position [x, y, z], s = size [width, height, depth], c = color
+defineProps({
+  p: { type: Array, default: () => [0, 0, 0] },
+  s: { type: Array, default: () => [1, 1, 1] },
+  c: { type: String, default: '#ffffff' },
+})
 </script>
 
 <template>
-  <TresMesh :position="p" :rotation="r">
+  <TresMesh :position="p">
     <TresBoxGeometry :args="s" />
     <TresMeshStandardMaterial :color="c" flat-shading />
   </TresMesh>

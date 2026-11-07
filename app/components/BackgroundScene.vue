@@ -1,19 +1,5 @@
-<script setup lang="ts">
+<script setup>
 const sky = '#f6eeeb'
-
-let seed = 7
-const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647
-const palette = ['#ffffff', '#f4d9d9', '#e11d2e', '#b3121f', '#ffffff', '#fbeaea']
-
-const towers = Array.from({ length: 44 }, () => {
-  const w = 1.5 + rand() * 2
-  const h = 2 + rand() * 11
-  return {
-    p: [-28 + rand() * 56, h / 2 - 0.2, -10 - rand() * 20] as [number, number, number],
-    s: [w, h, w] as [number, number, number],
-    c: palette[Math.floor(rand() * palette.length)]!,
-  }
-})
 </script>
 
 <template>
@@ -22,17 +8,16 @@ const towers = Array.from({ length: 44 }, () => {
       <TresFog :args="[sky, 14, 55]" />
       <TresAmbientLight :intensity="1.1" />
       <TresDirectionalLight :position="[6, 10, 6]" :intensity="2.2" />
-      <TresPointLight :position="[0, 2.2, -1.6]" color="#ff2a3d" :intensity="12" :distance="7" />
 
       <StudioRig />
       <StudioRoom />
 
-      <!-- ground + city outside the window -->
-      <TresMesh :position="[0, -0.2, -40]" :rotation="[-Math.PI / 2, 0, 0]">
-        <TresPlaneGeometry :args="[200, 200]" />
-        <TresMeshStandardMaterial color="#ece4e1" />
-      </TresMesh>
-      <LowBox v-for="(t, i) in towers" :key="i" :p="t.p" :s="t.s" :c="t.c" />
+      <!-- 5 towers outside the window (red and white) -->
+      <LowBox :p="[-4, 3, -14]" :s="[2, 6, 2]" c="#e11d2e" />
+      <LowBox :p="[-1, 4.5, -18]" :s="[2.5, 9, 2.5]" c="#ffffff" />
+      <LowBox :p="[2, 2.5, -13]" :s="[2, 5, 2]" c="#b3121f" />
+      <LowBox :p="[5, 5, -20]" :s="[3, 10, 3]" c="#f4d9d9" />
+      <LowBox :p="[-8, 4, -22]" :s="[3, 8, 3]" c="#ffffff" />
     </TresCanvas>
   </div>
 </template>
