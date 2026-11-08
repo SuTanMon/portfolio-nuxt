@@ -5,13 +5,14 @@ import { useLoop } from '@tresjs/core'
 
 const props = defineProps({ path: { type: String, default: '/' } })
 
-// where the camera sits (pos) and what it looks at (look) for each page
+// each view is shifted sideways so the object appears on the LEFT of the screen
+// (the content card on the right)
 const views = {
   '/': { pos: [5.5, 3.6, 9], look: [0, 2, -2.5] },
-  '/tech-stack': { pos: [0, 2.6, -0.5], look: [0, 2.55, -3.9] },
-  '/certifications': { pos: [-4.6, 3, -0.5], look: [-4.6, 3.1, -4.8] },
-  '/about': { pos: [-3, 3.2, -1.3], look: [-6.8, 2.9, -1.3] },
-  '/contact': { pos: [1.4, 2.6, -0.8], look: [1.4, 1.3, -3.2] },
+  '/tech-stack': { pos: [0.9, 2.6, -0.5], look: [0.9, 2.55, -3.9] },
+  '/certifications': { pos: [-3.5, 3, -0.5], look: [-3.5, 3.1, -4.8] },
+  '/about': { pos: [-3, 3.2, -2.3], look: [-6.8, 2.9, -2.3] },
+  '/contact': { pos: [2, 2.6, -0.8], look: [2, 1.3, -3.2] },
 }
 
 const cam = shallowRef()
