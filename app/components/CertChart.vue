@@ -1,23 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import * as echarts from 'echarts/core'
 import { BarChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
 
-// load the parts of ECharts so the bundle stays small
 echarts.use([BarChart, GridComponent, TooltipComponent, CanvasRenderer])
 
-const props = defineProps({
-  data: { type: Array, required: true },
-})
+const props = defineProps<{ data: { label: string; value: number }[] }>()
 
-const el = ref(null)
-let chart = null
-
-const onResize = () => chart?.resize()
+const el = ref<HTMLElement | null>(null)
+let chart: echarts.ECharts | null = null
+let observer: ResizeObserver | null = null
 
 onMounted(() => {
-  chart = echarts.init(el.value)
+  chart = echarts.init(el.value!)
   chart.setOption({
     tooltip: { trigger: 'axis' },
     grid: { left: 30, right: 10, top: 20, bottom: 30 },
@@ -32,11 +28,13 @@ onMounted(() => {
       },
     ],
   })
-  window.addEventListener('resize', onResize)
+  // redraw whenever the box changes size, not only when the window does
+  observer = new ResizeObserver(() => chart?.resize())
+  observer.observe(el.value!)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('resize', onResize)
+  observer?.disconnect()
   chart?.dispose()
 })
 </script>
