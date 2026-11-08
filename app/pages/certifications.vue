@@ -14,7 +14,7 @@ const certs = [
 ]
 // count certifications per year from the list above
 const byYear = computed(() => {
-  const counts = {}
+  const counts: Record<number, number> = {}
   certs.forEach((c) => {
     counts[c.year] = (counts[c.year] || 0) + 1
   })
