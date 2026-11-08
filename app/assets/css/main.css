@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import "tailwindcss";
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
@@ -38,4 +38,13 @@ h1, h2 {
 .ui-layer { pointer-events: none; }
 .ui-layer :where(a, button, input, textarea, select, label, p, h1, h2, h3, h4, li, img, .card, .stats, .alert, nav, footer) {
   pointer-events: auto;
+}
+
+/* let button text wrap instead of overflowing */
+.btn {
+  height: auto;
+  min-height: var(--size, 2.5rem);
+  white-space: normal;
+  padding-block: 0.4rem;
+  text-align: center;
 }
