@@ -2,7 +2,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  modules: ['@tresjs/nuxt'],
+  modules: ['@tresjs/nuxt', '@nuxt/icon'],
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   vite: {

@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/lucide": "^1.2.152",
+    "@nuxt/icon": "^2.6.2",
     "@tailwindcss/vite": "^4.3.5",
     "@tresjs/nuxt": "^5.8.1",
     "daisyui": "^5.7.50",
