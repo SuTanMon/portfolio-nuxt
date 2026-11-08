@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@emailjs/browser": "^5.0.3",
     "@iconify-json/lucide": "^1.2.152",
     "@nuxt/icon": "^2.6.2",
     "@tailwindcss/vite": "^4.3.5",
