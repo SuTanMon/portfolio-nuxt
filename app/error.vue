@@ -1,9 +1,7 @@
-<script setup lang="ts">
-import type { NuxtError } from '#app'
+<script setup>
+const props = defineProps({ error: Object })
 
-const props = defineProps<{ error: NuxtError }>()
-
-const is404 = computed(() => props.error.statusCode === 404)
+const is404 = computed(() => props.error?.statusCode === 404)
 
 useHead({ title: is404.value ? '404 | Page not found' : 'Error | John Kirby Soliven' })
 useSeoMeta({
@@ -16,14 +14,16 @@ const goHome = () => clearError({ redirect: '/' })
 
 <template>
   <NuxtLayout>
-    <section class="mt-16 text-center">
-      <h1 class="text-7xl font-black text-primary">
-        {{ error.statusCode }}
-      </h1>
-      <p class="mt-4">
-        {{ is404 ? 'Signal lost. This page does not exist.' : 'Something went wrong.' }}
+    <section>
+      <p class="text-sm uppercase tracking-widest text-secondary">— Error</p>
+      <h1 class="text-8xl font-black text-primary">{{ error.statusCode }}</h1>
+      <p class="mt-2 text-2xl font-bold">
+        {{ is404 ? "This room doesn't exist." : 'Something went wrong.' }}
       </p>
-      <button class="btn btn-primary mt-8" @click="goHome">Back to home</button>
+      <p class="mt-2">
+        {{ is404 ? 'The page you are looking for was moved or never existed.' : 'Please try again.' }}
+      </p>
+      <button class="btn btn-primary mt-6" @click="goHome">Back to the studio</button>
     </section>
   </NuxtLayout>
 </template>
