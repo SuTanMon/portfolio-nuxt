@@ -4,8 +4,8 @@ useHead({
 })
 useSeoMeta({
   ogSiteName: 'John Kirby Soliven',
-  ogImage: 'https://johnkirby-soliven-portfolio.onrender.com/images/Profile.png',
-  twitterImage: 'https://johnkirby-soliven-portfolio.onrender.com/images/Profile.png',
+  ogImage: 'https://johnkirby-soliven-portfolio.onrender.com/images/og-image.png',
+  twitterImage: 'https://johnkirby-soliven-portfolio.onrender.com/images/og-image.png',
 })
 </script>
 
