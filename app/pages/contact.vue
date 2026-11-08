@@ -1,14 +1,39 @@
 <script setup lang="ts">
+import emailjs from '@emailjs/browser'
+
 useHead({ title: 'Contact' })
 useSeoMeta({
-  description: 'Get in touch with John Kirby Soliven for internships, projects, and collaborations.',
+  description: 'Get in touch with Me for internships, projects, and collaborations.',
   ogTitle: 'Contact | John Kirby Soliven',
   ogDescription: 'Open to internships and collabs.',
-})
+})  
+
+const SERVICE_ID = 'service_slc7tl8'
+const TEMPLATE_ID = 'John Kirby'
+const PUBLIC_KEY = 'dm6kkHaZX8jp6t8gy'
 
 const form = reactive({ name: '', email: '', subject: '', message: '' })
-const onSubmit = () => {
-  // sending (EmailJS) comes later as an integration step
+const status = ref<'idle' | 'sending' | 'sent' | 'error'>('idle')
+
+const onSubmit = async () => {
+  status.value = 'sending'
+  try {
+    await emailjs.send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      {
+        from_name: form.name,
+        from_email: form.email,
+        subject: form.subject,
+        message: form.message,
+      },
+      { publicKey: PUBLIC_KEY },
+    )
+    status.value = 'sent'
+    Object.assign(form, { name: '', email: '', subject: '', message: '' })
+  } catch {
+    status.value = 'error'
+  }
 }
 </script>
 
@@ -47,8 +72,15 @@ const onSubmit = () => {
         <legend class="fieldset-legend">Message</legend>
         <textarea v-model="form.message" class="textarea h-32 w-full" required />
       </fieldset>
-      <button type="submit" class="btn btn-primary">
-    <Icon name="lucide:send" /> Send Message </button>
+      <button type="submit" class="btn btn-primary" :disabled="status === 'sending'">
+  <Icon name="lucide:send" /> {{ status === 'sending' ? 'Sending...' : 'Send Message' }}
+</button>
+<div v-if="status === 'sent'" class="alert alert-success">
+  <span>Message sent. Thanks!</span>
+</div>
+<div v-if="status === 'error'" class="alert alert-error">
+  <span>Something went wrong. Please try again.</span>
+</div>
     </form>
   </div>
 </template>
