@@ -12,6 +12,14 @@ const certs = [
   { name: 'MOS: PowerPoint Associate', issuer: 'Microsoft', year: 2025, img: '/images/Microsoft-Office-Specialist-PowerPoint-Associate-Certification.png' },
   { name: 'Python Essentials 1', issuer: 'Cisco Networking Academy', year: 2026, img: '/images/Python-Essentials-1-Certification.png' },
 ]
+// count certifications per year from the list above
+const byYear = computed(() => {
+  const counts = {}
+  certs.forEach((c) => {
+    counts[c.year] = (counts[c.year] || 0) + 1
+  })
+  return Object.entries(counts).map(([year, count]) => ({ label: year, value: count }))
+})
 </script>
 
 <template>
@@ -31,5 +39,9 @@ const certs = [
         </div>
       </div>
     </div>
+    <h2 class="mb-2 mt-8 text-2xl font-bold text-primary">Certifications per Year</h2>
+    <ClientOnly>
+      <CertChart :data="byYear" />
+    </ClientOnly>
   </div>
 </template>
