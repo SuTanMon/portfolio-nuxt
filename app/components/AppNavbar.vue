@@ -5,6 +5,7 @@ const links = [
   { to: '/tech-stack', label: 'Tech Stack', icon: 'lucide:layers' },
   { to: '/certifications', label: 'Certifications', icon: 'lucide:award' },
   { to: '/contact', label: 'Contact', icon: 'lucide:mail' },
+  { to: '/projects', label: 'Projects', icon: 'lucide:folder' },
 ]
 </script>
 

@@ -47,4 +47,12 @@
   <LowBox :p="[0, 4.5, -5]" :s="[5, 1, 0.3]" />        <!-- above window -->
    <!-- envelope on the desk (contact) -->
   <LowBox :p="[1.4, 1.3, -3.2]" :s="[0.7, 0.04, 0.5]" c="#e11d2e" />
+
+    <!-- laptop on the desk (projects) -->
+  <LowBox :p="[-1.4, 1.3, -3.1]" :s="[1.1, 0.05, 0.75]" c="#1f1a1b" />
+  <LowBox :p="[-1.4, 1.65, -3.45]" :s="[1.1, 0.7, 0.05]" c="#1f1a1b" />
+  <TresMesh :position="[-1.4, 1.65, -3.42]">
+    <TresPlaneGeometry :args="[1, 0.6]" />
+    <TresMeshBasicMaterial color="#e11d2e" />
+  </TresMesh>
 </template>
