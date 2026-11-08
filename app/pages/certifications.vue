@@ -53,7 +53,8 @@ const byYear = computed(() => {
   <div>
     <PageHeading eyebrow="Verified Achievements" title="My Certifications" />
     <div class="alert alert-outline mt-6">
-      <span>🏅 All my certifications are publicly verifiable on Credly.</span>
+      <Icon name="lucide:badge-check" class="text-xl text-primary" />
+      <span>All my certifications are publicly verifiable on Credly.</span>
       <a :href="credly" class="btn btn-sm btn-primary">View All on Credly</a>
     </div>
     <div class="mt-6 grid gap-4 sm:grid-cols-3">

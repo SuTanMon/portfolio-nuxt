@@ -6,7 +6,13 @@ useSeoMeta({
   ogDescription: 'BSIT student, aspiring web developer, open to internships.',
 })
 
-const facts = ['📍 Philippines', '🎓 BSIT', '🏫 St. Dominic College of Asia', '💼 Open to Internships', '🌐 Aspiring Web Developer']
+const facts = [
+  { icon: 'lucide:map-pin', label: 'Philippines' },
+  { icon: 'lucide:graduation-cap', label: 'BSIT' },
+  { icon: 'lucide:school', label: 'St. Dominic College of Asia' },
+  { icon: 'lucide:briefcase', label: 'Open to Internships' },
+  { icon: 'lucide:globe', label: 'Aspiring Web Developer' },
+]
 const drives = [
   { icon: 'lucide:flame', title: 'Passionate', text: 'Genuinely into web dev, not just for school, but because I enjoy it.' },
   { icon: 'lucide:book-open', title: 'Always Learning', text: 'Still a student in every sense, and that\'s fine with me.' },
@@ -18,7 +24,9 @@ const drives = [
   <div>
     <PageHeading eyebrow="A Little About Me" title="About Me" />
     <div class="mt-6 flex flex-wrap gap-2">
-      <span v-for="f in facts" :key="f" class="badge badge-outline badge-lg">{{ f }}</span>
+      <span v-for="f in facts" :key="f.label" class="badge badge-outline badge-lg gap-1">
+  <Icon :name="f.icon" /> {{ f.label }}
+</span>
     </div>
     <h2 class="mt-8 text-2xl font-bold text-primary">John Kirby Soliven</h2>
     <p class="mt-2">

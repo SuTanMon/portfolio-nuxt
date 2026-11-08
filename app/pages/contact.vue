@@ -26,7 +26,9 @@ const onSubmit = () => {
       <Icon name="lucide:badge-check" /> Credly
 </a>
     </div>
-    <p class="mt-3 text-sm">📬 Usually replies within 24–48 hours.</p>
+    <p class="mt-3 flex items-center gap-2 text-sm">
+      <Icon name="lucide:mail" /> Usually replies within 24–48 hours.
+    </p>
 
     <form class="mt-8 space-y-4" @submit.prevent="onSubmit">
       <fieldset class="fieldset">
