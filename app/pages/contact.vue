@@ -22,7 +22,7 @@ const onSubmit = () => {
     <div class="mt-4 flex flex-wrap gap-3">
         <a href="https://github.com/SuTanMon" class="btn btn-secondary">
       <Icon name="lucide:code" /> GitHub </a>
-        <a href="https://www.credly.com/users/john-kirby-soliven/badges" class="btn btn-outline btn-secondary">
+        <a href="https://www.credly.com/users/john-kirby-soliven.5e1c79d2/badges/credly" class="btn btn-outline btn-secondary">
       <Icon name="lucide:badge-check" /> Credly
 </a>
     </div>

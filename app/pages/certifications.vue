@@ -6,7 +6,7 @@ useSeoMeta({
   ogDescription: 'Publicly verifiable badges on Credly.',
 })
 
-const credly = 'https://www.credly.com/users/john-kirby-soliven/badges'
+const credly = 'https://www.credly.com/users/john-kirby-soliven.5e1c79d2/badges/credly'
 const certs = [
   {
     name: 'MOS: Word Associate', issuer: 'Microsoft', year: 2025,
