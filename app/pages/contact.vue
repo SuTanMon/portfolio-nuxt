@@ -20,8 +20,11 @@ const onSubmit = () => {
       Whether it's an internship, a project, a collab, or you just want to connect, feel free to reach out.
     </p>
     <div class="mt-4 flex flex-wrap gap-3">
-      <a href="https://github.com/SuTanMon" class="btn btn-secondary">GitHub</a>
-      <a href="https://www.credly.com/users/john-kirby-soliven/badges" class="btn btn-outline btn-secondary">Credly</a>
+        <a href="https://github.com/SuTanMon" class="btn btn-secondary">
+      <Icon name="lucide:code" /> GitHub </a>
+        <a href="https://www.credly.com/users/john-kirby-soliven/badges" class="btn btn-outline btn-secondary">
+      <Icon name="lucide:badge-check" /> Credly
+</a>
     </div>
     <p class="mt-3 text-sm">📬 Usually replies within 24–48 hours.</p>
 
@@ -42,7 +45,8 @@ const onSubmit = () => {
         <legend class="fieldset-legend">Message</legend>
         <textarea v-model="form.message" class="textarea h-32 w-full" required />
       </fieldset>
-      <button type="submit" class="btn btn-primary">Send Message</button>
+      <button type="submit" class="btn btn-primary">
+    <Icon name="lucide:send" /> Send Message </button>
     </form>
   </div>
 </template>
