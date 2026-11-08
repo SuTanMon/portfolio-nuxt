@@ -15,9 +15,9 @@ const links = [
     </div>
     <ul class="menu menu-horizontal font-bold">
       <li v-for="l in links" :key="l.to">
-        <NuxtLink :to="l.to" active-class="text-primary">
+        <NuxtLink :to="l.to" :aria-label="l.label" active-class="text-primary">
           <Icon :name="l.icon" />
-          {{ l.label }}
+          <span class="hidden sm:inline">{{ l.label }}</span>
         </NuxtLink>
       </li>
     </ul>

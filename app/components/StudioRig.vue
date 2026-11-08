@@ -31,6 +31,12 @@ onBeforeRender(({ delta }) => {
   const c = cam.value
   if (!c) return
 
+  // wider lens on tall/narrow screens so the room still fits
+  const fov = c.aspect < 1 ? 75 : 45
+  if (c.fov !== fov) {
+    c.fov = fov
+    c.updateProjectionMatrix()
+  }
   const view = views[props.path] || views['/']
   const t = Math.min(delta * 2.5, 1) // how fast the camera catches up
 
