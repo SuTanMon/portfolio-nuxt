@@ -24,7 +24,7 @@ const learning = [
 
 <template>
   <div>
-    <section class="flex h-[65vh] items-end justify-center pb-4">
+    <section class="h-[65vh]" aria-hidden="true">
       <p class="bg-base-100/70 px-3 py-1 text-sm uppercase tracking-widest text-secondary">
         Hover and click the shapes, scroll for more
       </p>
