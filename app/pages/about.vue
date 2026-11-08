@@ -8,9 +8,9 @@ useSeoMeta({
 
 const facts = ['📍 Philippines', '🎓 BSIT', '🏫 St. Dominic College of Asia', '💼 Open to Internships', '🌐 Aspiring Web Developer']
 const drives = [
-  { icon: '🔥', title: 'Passionate', text: 'Genuinely into web dev, not just for school, but because I enjoy it.' },
-  { icon: '📚', title: 'Always Learning', text: 'Still a student in every sense, and that\'s fine with me.' },
-  { icon: '🤝', title: 'Collaborative', text: 'I work well with others and I\'m not afraid to ask for help.' },
+  { icon: 'lucide:flame', title: 'Passionate', text: 'Genuinely into web dev, not just for school, but because I enjoy it.' },
+  { icon: 'lucide:book-open', title: 'Always Learning', text: 'Still a student in every sense, and that\'s fine with me.' },
+  { icon: 'lucide:users', title: 'Collaborative', text: 'I work well with others and I\'m not afraid to ask for help.' },
 ]
 </script>
 

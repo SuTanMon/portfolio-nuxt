@@ -11,23 +11,20 @@ useSeoMeta({
 })
 
 const learning = [
-  { icon: '⚡', title: 'VS Code', text: 'Developer environment, extensions, and productivity workflows.', tag: 'Tools' },
-  { icon: '🌿', title: 'Git & GitHub', text: 'Version control, branching, collaboration, and deployment.', tag: 'DevOps' },
-  { icon: '🏗️', title: 'HTML', text: 'Semantic structure, accessibility, and modern markup patterns.', tag: 'Foundation' },
-  { icon: '🎨', title: 'CSS', text: 'Styling, animations, custom properties, and design systems.', tag: 'Styling' },
-  { icon: '📐', title: 'Layouts', text: 'Flexbox and Grid for powerful, responsive page structures.', tag: 'Layout' },
-  { icon: '📱', title: 'Responsive Design', text: 'Mobile-first approach and media queries for all screen sizes.', tag: 'Design' },
-  { icon: '🌬️', title: 'Tailwind & DaisyUI', text: 'Utility-first CSS frameworks for rapid UI development.', tag: 'Framework' },
-  { icon: '📝', title: 'Forms', text: 'Interactive, validated, and accessible web form experiences.', tag: 'Interaction' },
+  { icon: 'lucide:terminal', title: 'VS Code', text: 'Developer environment, extensions, and productivity workflows.', tag: 'Tools' },
+  { icon: 'lucide:git-branch', title: 'Git & GitHub', text: 'Version control, branching, collaboration, and deployment.', tag: 'DevOps' },
+  { icon: 'lucide:file-code', title: 'HTML', text: 'Semantic structure, accessibility, and modern markup patterns.', tag: 'Foundation' },
+  { icon: 'lucide:palette', title: 'CSS', text: 'Styling, animations, custom properties, and design systems.', tag: 'Styling' },
+  { icon: 'lucide:layout-grid', title: 'Layouts', text: 'Flexbox and Grid for powerful, responsive page structures.', tag: 'Layout' },
+  { icon: 'lucide:smartphone', title: 'Responsive Design', text: 'Mobile-first approach and media queries for all screen sizes.', tag: 'Design' },
+  { icon: 'lucide:wind', title: 'Tailwind & DaisyUI', text: 'Utility-first CSS frameworks for rapid UI development.', tag: 'Framework' },
+  { icon: 'lucide:clipboard-list', title: 'Forms', text: 'Interactive, validated, and accessible web form experiences.', tag: 'Interaction' },
 ]
 </script>
 
 <template>
   <div>
-    <section class="h-[65vh]" aria-hidden="true">
-      <p class="bg-base-100/70 px-3 py-1 text-sm uppercase tracking-widest text-secondary">
-        Hover and click the shapes, scroll for more
-      </p>
+    <section class="flex h-[65vh] items-end justify-center pb-4">
     </section>
 
     <div class="bg-base-100/75 px-5 pb-12">
