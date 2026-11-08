@@ -12,24 +12,32 @@ const el = ref<HTMLElement | null>(null)
 let chart: echarts.ECharts | null = null
 let observer: ResizeObserver | null = null
 
+const options = () => ({
+  tooltip: { trigger: 'axis' },
+  grid: { left: 30, right: 10, top: 20, bottom: 30 },
+  xAxis: { type: 'category', data: props.data.map((d) => d.label) },
+  yAxis: { type: 'value', minInterval: 1 },
+  series: [
+    {
+      type: 'bar',
+      data: props.data.map((d) => d.value),
+      itemStyle: { color: '#e11d2e' },
+      barMaxWidth: 40,
+    },
+  ],
+})
+
 onMounted(() => {
-  chart = echarts.init(el.value!)
-  chart.setOption({
-    tooltip: { trigger: 'axis' },
-    grid: { left: 30, right: 10, top: 20, bottom: 30 },
-    xAxis: { type: 'category', data: props.data.map((d) => d.label) },
-    yAxis: { type: 'value', minInterval: 1 },
-    series: [
-      {
-        type: 'bar',
-        data: props.data.map((d) => d.value),
-        itemStyle: { color: '#e11d2e' },
-        barMaxWidth: 40,
-      },
-    ],
+  observer = new ResizeObserver(() => {
+    const box = el.value
+    if (!box || box.clientWidth === 0) return // not laid out yet, wait
+    if (!chart) {
+      chart = echarts.init(box)
+      chart.setOption(options())
+    } else {
+      chart.resize()
+    }
   })
-  // redraw whenever the box changes size, not only when the window does
-  observer = new ResizeObserver(() => chart?.resize())
   observer.observe(el.value!)
 })
 
