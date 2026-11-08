@@ -9,17 +9,19 @@ const links = [
 </script>
 
 <template>
-  <nav class="navbar flex-wrap px-0">
-    <div class="flex-1">
-      <NuxtLink to="/" class="text-xl font-black text-primary">JK.</NuxtLink>
+  <nav class="bg-base-100/80 backdrop-blur">
+    <div class="navbar mx-auto max-w-6xl flex-wrap px-5">
+      <div class="flex-1">
+        <NuxtLink to="/" class="text-xl font-black text-primary">JK.</NuxtLink>
+      </div>
+      <ul class="menu menu-horizontal font-bold">
+        <li v-for="l in links" :key="l.to">
+          <NuxtLink :to="l.to" :aria-label="l.label" active-class="text-primary">
+            <Icon :name="l.icon" />
+            <span class="hidden sm:inline">{{ l.label }}</span>
+          </NuxtLink>
+        </li>
+      </ul>
     </div>
-    <ul class="menu menu-horizontal font-bold">
-      <li v-for="l in links" :key="l.to">
-        <NuxtLink :to="l.to" :aria-label="l.label" active-class="text-primary">
-          <Icon :name="l.icon" />
-          <span class="hidden sm:inline">{{ l.label }}</span>
-        </NuxtLink>
-      </li>
-    </ul>
   </nav>
 </template>
