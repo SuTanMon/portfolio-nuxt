@@ -8,19 +8,19 @@ useSeoMeta({
 
 const groups = [
   { name: 'Core Skills', items: [
-    { title: 'HTML5', text: 'Structure and markup basics' },
-    { title: 'CSS3', text: 'Styling, layouts, animations' },
-    { title: 'JavaScript', text: 'Making pages actually do things' },
+    { icon: 'lucide:file-code', title: 'HTML5', text: 'Structure and markup basics' },
+    { icon: 'lucide:palette', title: 'CSS3', text: 'Styling, layouts, animations' },
+    { icon: 'lucide:braces', title: 'JavaScript', text: 'Making pages actually do things' },
   ] },
   { name: 'Tools', items: [
-    { title: 'Git', text: 'Local version control, tracking changes' },
-    { title: 'GitHub', text: 'Remote hosting, pushing and sharing code' },
-    { title: 'VS Code', text: 'Where I write most of my code' },
+    { icon: 'lucide:git-branch', title: 'Git', text: 'Local version control, tracking changes' },
+    { icon: 'lucide:git-pull-request', title: 'GitHub', text: 'Remote hosting, pushing and sharing code' },
+    { icon: 'lucide:terminal', title: 'VS Code', text: 'Where I write most of my code' },
   ] },
   { name: 'Exploring', items: [
-    { title: 'Tailwind CSS', text: 'Utility-first CSS, still learning' },
-    { title: 'Nuxt', text: 'Vue framework used to build this portfolio' },
-    { title: 'React', text: 'Next on the list to learn', tag: 'Soon' },
+    { icon: 'lucide:wind', title: 'Tailwind CSS', text: 'Utility-first CSS, still learning' },
+    { icon: 'lucide:mountain', title: 'Nuxt', text: 'Vue framework used to build this portfolio' },
+    { icon: 'lucide:atom', title: 'React', text: 'Next on the list to learn', tag: 'Soon' },
   ] },
 ]
 </script>
