@@ -8,9 +8,36 @@ useSeoMeta({
 
 const credly = 'https://www.credly.com/users/john-kirby-soliven/badges'
 const certs = [
-  { name: 'MOS: Word Associate', issuer: 'Microsoft', year: 2025, img: '/images/Microsoft-Office-Specialist-Word-Associate-Certification.png' },
-  { name: 'MOS: PowerPoint Associate', issuer: 'Microsoft', year: 2025, img: '/images/Microsoft-Office-Specialist-PowerPoint-Associate-Certification.png' },
-  { name: 'Python Essentials 1', issuer: 'Cisco Networking Academy', year: 2026, img: '/images/Python-Essentials-1-Certification.png' },
+  {
+    name: 'MOS: Word Associate', issuer: 'Microsoft', year: 2025,
+    img: '/images/Microsoft-Office-Specialist-Word-Associate-Certification.png',
+    url: 'https://www.credly.com/badges/fdc7893d-fdf5-4b1a-961b-8b2ff538903a/public_url',
+  },
+  {
+    name: 'MOS: PowerPoint Associate', issuer: 'Microsoft', year: 2025,
+    img: '/images/Microsoft-Office-Specialist-PowerPoint-Associate-Certification.png',
+    url: 'https://www.credly.com/badges/5cd5620a-f1d0-42e4-a2d4-37a89bffc725/public_url',
+  },
+  {
+    name: 'Python Essentials 1', issuer: 'Cisco Networking Academy', year: 2026,
+    img: '/images/Python-Essentials-1-Certification.png',
+    url: 'https://www.credly.com/badges/29204c65-11a8-4c21-bd2f-b9f3e26c5270/public_url',
+  },
+  {
+    name: 'IT Specialist: Databases', issuer: 'Certiport, a Pearson VUE business', year: 2026,
+    img: '/images/IT-Specialist-Databases-Certification.png',
+    url: 'https://www.credly.com/badges/4c506d5b-8d4c-444b-be7b-d191e14d9467/public_url',
+  },
+  {
+    name: 'CRUD Operations in MongoDB', issuer: 'MongoDB', year: 2026,
+    img: '/images/CRUD-Operations-in-MongoDB-Certification.png',
+    url: 'https://www.credly.com/badges/045e860b-dcb6-4a28-bc80-391e65ecbd3d/public_url',
+  },
+  {
+    name: 'MongoDB Overview: Core Concepts and Architecture', issuer: 'MongoDB', year: 2026,
+    img: '/images/MongoDB-Overview-Core-Concepts-and-Architecture-Certification.png',
+    url: 'https://www.credly.com/badges/08793ecd-8b22-43df-b673-9a8fd8320531/public_url',
+  },
 ]
 // count certifications per year from the list above
 const byYear = computed(() => {
@@ -35,7 +62,7 @@ const byYear = computed(() => {
         <div class="card-body pt-0">
           <h3 class="card-title">{{ c.name }}</h3>
           <p>{{ c.issuer }} · Issued {{ c.year }}</p>
-          <a :href="credly" class="btn btn-sm btn-outline btn-primary">Verify Badge</a>
+          <a :href="c.url" class="btn btn-sm btn-outline btn-primary">Verify Badge</a>
         </div>
       </div>
     </div>
