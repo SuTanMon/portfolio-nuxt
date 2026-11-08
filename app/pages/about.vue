@@ -33,7 +33,7 @@ const drives = [
       and I'm currently looking for an internship to get real-world experience while I'm still in school.
     </p>
     <h2 class="mb-3 mt-10 text-2xl font-bold text-primary">What Drives Me</h2>
-    <div class="grid gap-4 sm:grid-cols-3">
+    <div class="grid gap-4 grid-cols-1">
       <ContentCard v-for="d in drives" :key="d.title" v-bind="d" />
     </div>
     <NuxtLink to="/contact" class="btn btn-primary mt-8">Get In Touch</NuxtLink>
