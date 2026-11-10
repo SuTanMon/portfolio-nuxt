@@ -12,8 +12,8 @@ const views = {
   '/tech-stack': { pos: [0.9, 2.6, -0.5], look: [0.9, 2.55, -3.9] },
   '/certifications': { pos: [-3.5, 3, -0.5], look: [-3.5, 3.1, -4.8] },
   '/about': { pos: [-3, 3.2, -2.3], look: [-6.8, 2.9, -2.3] },
-  '/contact': { pos: [2, 2.6, -0.8], look: [2, 1.3, -3.2] },
-  '/projects': { pos: [-0.5, 2.4, -0.5], look: [-0.5, 1.55, -3.2] },
+  '/projects': { pos: [0.9, 2.4, -0.6], look: [-1.2, 1.55, -2.85] },
+  '/contact': { pos: [3.6, 2.2, -0.2], look: [2.6, 1.3, -2.2] },
 }
 
 const cam = shallowRef()
