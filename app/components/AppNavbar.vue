@@ -18,15 +18,15 @@ const links = [
       </div>
       <ul class="menu menu-horizontal font-bold">
         <li v-for="l in links" :key="l.to">
-                  <li>
-          <button aria-label="Toggle day and night" @click="isNight = !isNight">
-            <Icon :name="isNight ? 'lucide:sun' : 'lucide:moon'" />
-          </button>
-        </li>
           <NuxtLink :to="l.to" :aria-label="l.label" active-class="text-primary">
             <Icon :name="l.icon" />
             <span class="hidden sm:inline">{{ l.label }}</span>
           </NuxtLink>
+        </li>
+        <li>
+          <button aria-label="Toggle day and night" @click="isNight = !isNight">
+            <Icon :name="isNight ? 'lucide:sun' : 'lucide:moon'" />
+          </button>
         </li>
       </ul>
     </div>
