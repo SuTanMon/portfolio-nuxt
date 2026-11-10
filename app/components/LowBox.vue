@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <TresMesh :position="p">
+    <TresMesh :position="p" :cast-shadow="true" :receive-shadow="true">
     <TresBoxGeometry :args="s" />
     <TresMeshStandardMaterial :color="c" flat-shading />
   </TresMesh>
