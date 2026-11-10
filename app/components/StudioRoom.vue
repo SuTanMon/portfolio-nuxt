@@ -72,6 +72,31 @@
     <TresMeshStandardMaterial color="#b3121f" flat-shading />
   </TresMesh>
 
+    <!-- cat on the left shelf, facing the room -->
+  <TresGroup :position="[-6.8, 2.65, -0.7]" :rotation="[0, 1.5708, 0]">
+    <LowCat />
+  </TresGroup>
+
+  <!-- dog lying on the rug, turned slightly toward the camera -->
+  <TresGroup :position="[2.1, 0, -0.5]" :rotation="[0, 0.5, 0]">
+    <LowDog />
+  </TresGroup>
+
+  <!-- two shelves on the back wall under the clock -->
+  <LowBox :p="[5.2, 2.4, -4.6]" :s="[2, 0.1, 0.5]" />
+  <LowBox :p="[4.5, 2.72, -4.6]" :s="[0.18, 0.55, 0.35]" c="#e11d2e" />
+  <LowBox :p="[4.72, 2.8, -4.6]" :s="[0.18, 0.7, 0.35]" c="#1f1a1b" />
+  <LowBox :p="[4.94, 2.72, -4.6]" :s="[0.18, 0.55, 0.35]" c="#f4b6b6" />
+
+  <LowBox :p="[5.2, 1.5, -4.6]" :s="[2, 0.1, 0.5]" />
+  <LowBox :p="[5.8, 1.85, -4.7]" :s="[0.5, 0.6, 0.06]" c="#e11d2e" />
+  <LowBox :p="[5.8, 1.85, -4.67]" :s="[0.38, 0.48, 0.08]" />
+  <LowCylinder :p="[4.6, 1.7, -4.6]" :r="0.15" :h="0.3" :seg="6" />
+  <TresMesh :position="[4.6, 2.05, -4.6]" :cast-shadow="true">
+    <TresConeGeometry :args="[0.2, 0.5, 5]" />
+    <TresMeshStandardMaterial color="#b3121f" flat-shading />
+  </TresMesh>
+  
   <CDesk />
   <DeskLaptop />
   <DeskPhone />
