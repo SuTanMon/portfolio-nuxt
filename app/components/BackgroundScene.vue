@@ -1,24 +1,49 @@
 <script setup>
-const sky = '#f6eeeb'
+const SHADOWS = true // set to false if a weak phone lags
 const route = useRoute()
+
+// shared with the navbar button
+const isNight = useState('isNight', () => false)
+
+// follow the clock once the page is in the browser
+onMounted(() => {
+  const hour = new Date().getHours()
+  isNight.value = hour >= 18 || hour < 6
+})
+
+const sky = computed(() => (isNight.value ? '#12060a' : '#f6eeeb'))
 </script>
 
 <template>
   <div class="fixed inset-0 z-0">
-    <TresCanvas :clear-color="sky">
-      <TresFog :args="[sky, 14, 55]" />
-      <TresAmbientLight :intensity="1.1" />
-      <TresDirectionalLight :position="[6, 10, 6]" :intensity="2.2" />
+    <TresCanvas :clear-color="sky" :shadows="SHADOWS">
+      <TresFog :key="sky" :args="[sky, 14, 55]" />
+      <TresAmbientLight :color="isNight ? '#ff9aa5' : '#ffffff'" :intensity="isNight ? 0.35 : 0.8" />
+      <TresDirectionalLight
+        :color="isNight ? '#ffc4cc' : '#fff1e6'"
+        :position="isNight ? [-5, 9, 4] : [5, 9, 4]"
+        :intensity="isNight ? 0.7 : 2.4"
+        :cast-shadow="SHADOWS"
+        :shadow-camera-near="0.5"
+        :shadow-camera-far="40"
+        :shadow-camera-left="-10"
+        :shadow-camera-right="10"
+        :shadow-camera-top="10"
+        :shadow-camera-bottom="-10"
+      />
+      <!-- red glow from the monitor, night only -->
+      <TresPointLight v-if="isNight" :position="[0, 2.6, -2.2]" color="#ff2a3d" :intensity="10" :distance="8" />
 
       <StudioRig :path="route.path" />
       <StudioRoom />
       <Hotspots />
 
-      <LowBox :p="[-4, 3, -14]" :s="[2, 6, 2]" c="#e11d2e" />
-      <LowBox :p="[-1, 4.5, -18]" :s="[2.5, 9, 2.5]" c="#ffffff" />
-      <LowBox :p="[2, 2.5, -13]" :s="[2, 5, 2]" c="#b3121f" />
-      <LowBox :p="[5, 5, -20]" :s="[3, 10, 3]" c="#f4d9d9" />
-      <LowBox :p="[-8, 4, -22]" :s="[3, 8, 3]" c="#ffffff" />
+      <!-- ground outside + city -->
+      <TresMesh :key="sky" :position="[0, -0.2, -40]" :rotation="[-Math.PI / 2, 0, 0]">
+        <TresPlaneGeometry :args="[200, 200]" />
+        <TresMeshStandardMaterial :color="isNight ? '#0d0407' : '#ece4e1'" />
+      </TresMesh>
+      <Skyline :night="isNight" />
     </TresCanvas>
   </div>
 </template>
