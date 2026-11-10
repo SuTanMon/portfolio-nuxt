@@ -11,10 +11,12 @@ const props = defineProps({
   speed: { type: Number, default: 1 },
 })
 
+const reduceMotion = useState('reduceMotion', () => false)
 const mesh = shallowRef()
 const { onBeforeRender } = useLoop()
 
 onBeforeRender(({ elapsed }) => {
+  if (reduceMotion.value) return
   const m = mesh.value
   if (!m) return
   // grows and shrinks between 20% and 100% of its width, like typing

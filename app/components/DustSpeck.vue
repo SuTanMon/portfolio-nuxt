@@ -7,11 +7,13 @@ const props = defineProps({
   p: { type: Array, required: true },
 })
 
+const reduceMotion = useState('reduceMotion', () => false)
 const mesh = shallowRef()
 const seed = props.p[0] * 3 + props.p[2] * 5 // different phase for each speck
 const { onBeforeRender } = useLoop()
 
 onBeforeRender(({ elapsed }) => {
+  if (reduceMotion.value) return
   const m = mesh.value
   if (!m) return
   m.position.y = props.p[1] + Math.sin(elapsed * 0.5 + seed) * 0.25

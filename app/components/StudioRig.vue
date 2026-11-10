@@ -19,6 +19,7 @@ const views = {
 const cam = shallowRef()
 const look = new Vector3(0, 2, -2.5) // the point the camera is looking at right now
 const mouse = reactive({ x: 0, y: 0 })
+const reduceMotion = useState('reduceMotion', () => false)
 
 const onMove = (e) => {
   mouse.x = (e.clientX / window.innerWidth) * 2 - 1
@@ -41,9 +42,9 @@ onBeforeRender(({ delta }) => {
   const view = views[props.path] || views['/']
   const t = Math.min(delta * 2.5, 1) // how fast the camera catches up
 
-  // move toward the target position, plus a small drift from the mouse
-  c.position.x = MathUtils.lerp(c.position.x, view.pos[0] + mouse.x * 0.5, t)
-  c.position.y = MathUtils.lerp(c.position.y, view.pos[1] - mouse.y * 0.3, t)
+const drift = reduceMotion.value ? 0 : 1
+c.position.x = MathUtils.lerp(c.position.x, view.pos[0] + mouse.x * 0.5 * drift, t)
+c.position.y = MathUtils.lerp(c.position.y, view.pos[1] - mouse.y * 0.3 * drift, t)
   c.position.z = MathUtils.lerp(c.position.z, view.pos[2], t)
 
   // turn toward the target point
