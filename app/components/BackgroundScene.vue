@@ -1,4 +1,5 @@
 <script setup>
+const reduceMotion = useState('reduceMotion', () => false)
 const SHADOWS = true // set to false if a weak phone lags
 const route = useRoute()
 
@@ -9,6 +10,7 @@ const isNight = useState('isNight', () => false)
 onMounted(() => {
   const hour = new Date().getHours()
   isNight.value = hour >= 18 || hour < 6
+  reduceMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 })
 
 const sky = computed(() => (isNight.value ? '#12060a' : '#f6eeeb'))
